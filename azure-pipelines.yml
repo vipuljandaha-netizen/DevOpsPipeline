@@ -14,7 +14,7 @@ stages:
           inputs:
             provider: 'azurerm'
             command: 'init'
-            workingDirectory: '$(System.DefaultWorkingDirectory)/parent'
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
             backendServiceArm: 'DevOpsService'
             backendAzureRmStorageAccountName: 'devpsstorage1'
             backendAzureRmContainerName: 'devopscontainer'
