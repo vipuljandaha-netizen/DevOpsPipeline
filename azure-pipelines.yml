@@ -1,0 +1,21 @@
+pool: TestAgent
+
+stages:
+  - stage: TerraformValidation
+    displayName: 'Terraform Validation'
+
+    jobs:
+      - job: TerraformValidation
+        displayName: 'Terraform Validation'
+
+        steps:
+
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/parent'
+            backendServiceArm: 'DevOpsService'
+            backendAzureRmStorageAccountName: 'devpsstorage1'
+            backendAzureRmContainerName: 'devopscontainer'
+            backendAzureRmKey: 'tfstate'
